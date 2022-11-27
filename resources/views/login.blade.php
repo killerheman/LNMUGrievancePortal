@@ -59,11 +59,11 @@
     <form action="#" class="login-container fisat-admin-login-container form-horizontal" method="post"
         role="form">
 
-        <input id="slug" name="slug" type="hidden" value="{{$slug}}" />
+        <input id="slug" name="slug" type="hidden" value="{{ $slug }}" />
         <div class="login-box psg-login animated fadeInDown">
 
             <div class="login-body login-body1">
-                <div class="login-title"><strong>{{ucfirst($slug)}} </strong>Log In</div>
+                <div class="login-title"><strong>{{ ucfirst($slug) }} </strong>Log In</div>
                 <div class="form-group">
                     <div class="col-md-12">
                         <input class="form-control" data-val="true" data-val-remote="Unauthorized access! Access denied"
@@ -93,9 +93,15 @@
                 </div>
 
                 <div class="login-subtitle col-md-12">
-
-                    <a href="#" class="btn btn-block"
-                        style="border-color:white; color:white;">New {{$slug}} registration </a>
+                    @php
+                        if ($slug == 'student') {
+                            $url = route('studentRegister');
+                        } else {
+                            $url = route('home');
+                        }
+                    @endphp
+                    <a href="{{ $url }}" class="btn btn-block" style="border-color:white; color:white;">New
+                        {{ $slug }} registration </a>
 
                 </div>
             </div>
@@ -107,7 +113,6 @@
                 </a>
                 <p>&copy; 2018 EduGrievance  Powered by<a target="_blank" href="http://orell.com/">  Orell </a></p>
             </div> --}}
-
 
         </div>
     </form>

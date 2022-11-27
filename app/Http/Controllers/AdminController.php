@@ -17,8 +17,8 @@ class AdminController extends Controller
         return view('login',compact('slug'));
     }
 
-    public function register()
+    public function studentRegister()
     {
-        return view('register');
+        return view('register.student_register');
     }
 }
